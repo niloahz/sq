@@ -1,12 +1,13 @@
 #!/bin/bash
-apt-get update && apt-get install squid3 apache2-utils -y
+/usr/bin/apt update
+/usr/bin/apt install squid3 apache2-utils -y
 
-touch /etc/squid/passwd && touch /etc/squid/blacklist.acl
-htpasswd -b -c /etc/squid/passwd $squid_user $squid_password
+/usr/bin/touch /etc/squid/passwd && /usr/bin/touch /etc/squid/blacklist.acl
+/usr/bin/htpasswd -b -c /etc/squid/passwd $squid_user $squid_password
 
 #Use new config file
-rm -f /etc/squid/squid.conf
-wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/niloahz/sq/master/squid.conf
+/bin/rm -f /etc/squid/squid.conf
+/usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/niloahz/sq/master/squid.conf
 service squid restart
 
 #Port Setting
@@ -21,4 +22,4 @@ update-rc.d squid defaults
 service squid status
 
 #delet sh file
-rm squid.sh
+/bin/rm squid.sh
