@@ -19,3 +19,6 @@ update-rc.d squid defaults
 
 #Check squid status
 service squid status
+
+#delet sh file
+rm squid.sh
